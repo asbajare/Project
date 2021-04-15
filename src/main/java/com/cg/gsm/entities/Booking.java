@@ -18,7 +18,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -27,6 +30,8 @@ public class Booking{
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private int id;
+@Temporal(value = TemporalType.DATE)
+@JsonFormat(pattern = "yyyy-MM-dd")
 private Date date;
 private double amount;
 
@@ -72,10 +77,11 @@ public void setBookingproducts(List<BookingProduct> bookingproducts) {
 	this.bookingproducts = bookingproducts;
 }
 
+@JsonIgnore
 @OneToMany(mappedBy = "product",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 private List<BookingProduct> bookingproducts;
 
-@JsonIgnore
+
 @ManyToOne(fetch =FetchType.EAGER)
 @JoinColumn(name="user_id")
 private User user;

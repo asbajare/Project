@@ -31,5 +31,8 @@ public interface ProductServiceInt {
 	public Product findByCode(String code);
 
 	public List<Product> findAll();
+
+	public Product updateProduct(String code, String name, double price, String description, int quantityinStock,
+			String category);
 	
 }

@@ -3,6 +3,7 @@ package com.cg.gsm.service;
 import java.util.List;
 import com.cg.gsm.entities.Address;
 import com.cg.gsm.entities.Booking;
+import com.cg.gsm.entities.BookingProduct;
 import com.cg.gsm.entities.User;
 
 public interface UserServiceInt {

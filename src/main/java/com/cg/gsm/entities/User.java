@@ -12,7 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.Email;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 
 
@@ -22,11 +25,17 @@ public class User{
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private int id;
+@NotNull
 private String firstName;
+@NotNull
 private String lastName;
+@NotNull
 private long mobileNo;
+@NotNull
+@Email
 private String emailId;
 
+@JsonIgnore
 @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 @JoinColumn(name="add_id")
 private Address address;

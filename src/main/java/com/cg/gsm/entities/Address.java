@@ -6,16 +6,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.sun.istack.NotNull;
+
 @Entity
 public class Address{
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private int id;
+@NotNull
 private String street;
+@NotNull
 private String locality;
+@NotNull
 private String city;
+@NotNull
 private int pincode;
+@NotNull
 private String state;
+@NotNull
 private String country;
 public int getId() {
 	return id;

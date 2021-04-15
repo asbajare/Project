@@ -8,16 +8,22 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 
 @Entity
 public class Product {
 @Id
 private String code;
+@NotNull
 private String name;
+@NotNull
 private double price;
+@NotNull
 private String description;
+@NotNull
 private int quantityInStock;
+@NotNull
 private String category;
 
 public Product() {

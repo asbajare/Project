@@ -28,4 +28,10 @@ public final ResponseEntity<ExceptionResponse> handleAllExceptions(Exception ex,
     return new ResponseEntity(expResp,HttpStatus.INTERNAL_SERVER_ERROR);
 }
 
+@ExceptionHandler(OutofStockException.class)
+public final ResponseEntity<ExceptionResponse> handleOutofStockException(OutofStockException ex, WebRequest req) {
+    ExceptionResponse expResp = new ExceptionResponse(ex.getMessage(),"Please book with less quanity");
+    return new ResponseEntity(expResp,HttpStatus.OK);
+}
+
 }
